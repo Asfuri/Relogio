@@ -5,15 +5,12 @@ module maq_h (
     maqh_incremento,
     output logic [3:0] maqh_lsd,
     output logic [1:0] maqh_msd
-);
-
-  logic temp;
+)
 
   always_ff @(posedge maqh_clock) begin
     if (!maqh_reset) begin
       maqh_lsd <= 0;
       maqh_msd <= 0;
-      temp <= 0;
     end else begin
       if (maqh_incremento) begin
         if (maqh_msd == 2'd2 && maqh_lsd == 4'd3) begin
